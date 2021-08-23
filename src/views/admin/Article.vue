@@ -8,8 +8,7 @@
             <el-table-column prop="title" label="标题" align="center"></el-table-column>
             <el-table-column prop="tags" label="标签" align="center">
                 <template slot-scope="scope">
-                    <el-tag v-for="tag in scope.row.tags.split(',')" :key="tag" style="margin-right: 10px;">{{tag}}
-                    </el-tag>
+                    <el-tag v-for="tag in scope.row.tags.split(',')" :key="tag" style="margin-right: 10px;">{{tag}}</el-tag>
                 </template>
             </el-table-column>
             <el-table-column prop="creat_at" label="发布时间" align="center">
@@ -30,12 +29,16 @@
             <el-table-column fixed="right" label="操作" width="220" align="center">
                 <template slot-scope="scope">
                     <el-button @click="goEdit(scope.row.id)" type="primary" size="small">编辑</el-button>
-                    <el-popconfirm title="确定删除吗？" @onConfirm="delArticle(scope.row.id)"
-                    >
+                    <el-popconfirm title="确定删除吗？" @onConfirm="delArticle(scope.row.id)">
                         <el-button type="danger" size="small" slot="reference" style="margin: 0 10px;">删除</el-button>
                     </el-popconfirm>
-                    <el-button @click="pubArticle(scope.row.id)" type="success" size="small"
-                               v-if="scope.row.status === '2'">发布
+                    <el-button
+                        size="small"
+                        type="success"
+                        v-if="scope.row.status === '2'"
+                        @click="pubArticle(scope.row.id)"
+                    >
+                      发布
                     </el-button>
                 </template>
             </el-table-column>
@@ -71,7 +74,7 @@
             //前往编辑
             goEdit(id) {
                 this.$router.push({
-                    path: '/publish',
+                    path: '/admin/publish',
                     query: {
                         id: id
                     }

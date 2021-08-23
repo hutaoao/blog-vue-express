@@ -10,28 +10,33 @@
         </div>
         <div class="introduce">
             <span class="label">简介：</span>
-            <el-input type="textarea" :autosize="{minRows: 4, macRows: 10}" placeholder="请输入文章简介"
-                      v-model="introduce"></el-input>
+            <el-input
+              type="textarea"
+              v-model="introduce"
+              :autosize="{minRows: 4, macRows: 10}"
+              placeholder="请输入文章简介"
+            ></el-input>
         </div>
         <div class="tabs">
             <span class="label">标签：</span>
             <el-tag
-                    closable
-                    :key="tag"
-                    effect="dark"
-                    v-for="tag in tags"
-                    :disable-transitions="false"
-                    @close="handleClose(tag)">
+                closable
+                :key="tag"
+                effect="dark"
+                v-for="tag in tags"
+                :disable-transitions="false"
+                @close="handleClose(tag)"
+            >
                 {{tag}}
             </el-tag>
             <el-input
-                    class="input-new-tag"
-                    v-if="inputVisible"
-                    v-model="tagValue"
-                    ref="saveTagInput"
-                    size="small"
-                    @keyup.enter.native="handleInputConfirm"
-                    @blur="handleInputConfirm"
+                class="input-new-tag"
+                v-if="inputVisible"
+                v-model="tagValue"
+                ref="saveTagInput"
+                size="small"
+                @keyup.enter.native="handleInputConfirm"
+                @blur="handleInputConfirm"
             >
             </el-input>
             <el-button v-else class="button-new-tag" size="small" @click="showInput">+ New Tag</el-button>
@@ -39,13 +44,13 @@
         <div class="count">
             <p style="margin-bottom: 20px">内容：</p>
             <mavon-editor
-                    v-model="content"
-                    ref="md"
-                    @imgAdd="imgAdd"
-                    @imgDel="imgDel"
-                    @save="saveEditor"
-                    @change="changeEditor"
-                    style="min-height: 600px"
+                v-model="content"
+                ref="md"
+                @imgAdd="imgAdd"
+                @imgDel="imgDel"
+                @save="saveEditor"
+                @change="changeEditor"
+                style="min-height: 600px"
             />
         </div>
         <div style="text-align: right;">
@@ -170,7 +175,7 @@
                 request(params).then((res) => {
                     if (res.data.status) {
                         this.$message.success(res.data.msg);
-                        this.$router.push({path: '/article'});
+                        this.$router.push({path: '/admin/article'});
                     } else {
                         this.$message.error(res.data.msg);
                     }

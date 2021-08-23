@@ -41,20 +41,20 @@ const router = new Router({
             // name: 'admin', //当某个路由有子级路由的时候，这时候父级路由需要一个默认的路由，所以父级路由不能定义name属性（会有警告）
             component: () => import('../views/admin/Home.vue'),
             meta: {requiresAuth: true},//路由元信息 - 做登录校验
-            // redirect: '/admin-introduce',//路由重定向
+            redirect: '/admin/index',//路由重定向
             children: [
                 {
-                    path: '/admin',
+                    path: '/admin/index',
                     name: 'AdminIntroduce',
                     component: () => import('../views/admin/Introduce.vue')
                 },
                 {
-                    path: '/admin-article',
+                    path: '/admin/article',
                     name: 'AdminArticle',
                     component: () => import('../views/admin/Article.vue')
                 },
                 {
-                    path: '/admin-publish',
+                    path: '/admin/publish',
                     name: 'AdminPublish',
                     component: () => import('../views/admin/Publish.vue')
                 }

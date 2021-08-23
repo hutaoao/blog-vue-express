@@ -7,7 +7,7 @@
                 @select="selectMenu"
                 :default-active="defaultActive"
         >
-            <el-menu-item index="introduce">
+            <el-menu-item index="/admin/index">
                 <i class="el-icon-video-camera-solid"></i>
                 <span slot="title">介绍</span>
             </el-menu-item>
@@ -16,8 +16,8 @@
                     <i class="el-icon-s-order"></i>
                     <span>文章</span>
                 </template>
-                <el-menu-item index="article">列表</el-menu-item>
-                <el-menu-item index="publish">发布</el-menu-item>
+                <el-menu-item index="/admin/article">列表</el-menu-item>
+                <el-menu-item index="/admin/publish">发布</el-menu-item>
             </el-submenu>
         </el-menu>
     </div>

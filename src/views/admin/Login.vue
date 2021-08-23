@@ -110,7 +110,7 @@
                                 if(res.data.data.portrait){
                                     sessionStorage.setItem('portrait', res.data.data.portrait);
                                 }
-                                this.$router.push({path: '/introduce'})
+                                this.$router.push({path: '/admin'})
                             } else {
                                 this.loading = false;
                                 this.$message.error(res.data.msg);

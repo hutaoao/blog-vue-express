@@ -27,7 +27,22 @@ const router = new Router({
                     path: '/more/:id',
                     name: 'More',
                     component: () => import('../views/pages/More')
-                }
+                },
+                {
+                    path: '/tags',
+                    name: 'Tags',
+                    component: () => import('../views/pages/Tags')
+                },
+                {
+                    path: '/archive',
+                    name: 'Archive',
+                    component: () => import('../views/pages/Archive')
+                },
+                {
+                    path: '/about',
+                    name: 'About',
+                    component: () => import('../views/pages/About')
+                },
             ]
         },
         {

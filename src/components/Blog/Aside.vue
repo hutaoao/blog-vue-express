@@ -1,25 +1,25 @@
 <template>
     <div class="asideBox">
         <div class="top">
-            <div class="meta">
+            <div class="meta" @click="goHome">
                 <p class="title">海盗船长的博客</p>
                 <p class="subTitle">记录学习的技能和遇到的问题</p>
             </div>
             <div class="nav">
-                <el-menu default-active="1">
-                    <el-menu-item index="1">
+                <el-menu default-active="1" @select="selectMenu">
+                    <el-menu-item index="/">
                         <i class="el-icon-s-home"></i>
                         <span slot="title">首页</span>
                     </el-menu-item>
-                    <el-menu-item index="2">
+                    <el-menu-item index="/tags">
                         <i class="el-icon-s-finance"></i>
                         <span slot="title">标签</span>
                     </el-menu-item>
-                    <el-menu-item index="3">
+                    <el-menu-item index="/archive">
                         <i class="el-icon-s-order"></i>
                         <span slot="title">归档</span>
                     </el-menu-item>
-                    <el-menu-item index="4">
+                    <el-menu-item index="/about">
                         <i class="el-icon-s-custom"></i>
                         <span slot="title">关于</span>
                     </el-menu-item>
@@ -86,6 +86,16 @@
                 }else {
                     obj.style.position = 'static';
                 }
+            },
+            selectMenu(menu) {
+                this.$router.push({path: menu}).catch(() => {
+                    // console.log(err);
+                });
+            },
+            goHome() {
+                this.$router.push({path: '/'}).catch(() => {
+                    // console.log(err);
+                });
             }
         }
     }
@@ -103,6 +113,7 @@
                 color: #fff;
                 background: #222;
                 text-align: center;
+                cursor: pointer;
 
                 .title {
                     line-height: 36px;

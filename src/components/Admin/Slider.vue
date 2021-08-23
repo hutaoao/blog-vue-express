@@ -42,7 +42,9 @@
         methods: {
             selectMenu(menu) {
                 this.defaultActive = menu;
-                this.$router.push({path: menu});
+                this.$router.push({path: menu}).catch(() => {
+                    // console.log(err);
+                });
                 sessionStorage.setItem('menu', menu);
             }
         }

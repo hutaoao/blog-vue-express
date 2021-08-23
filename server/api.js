@@ -7,7 +7,7 @@ const pool = mysql.createPool({
     host: 'localhost',
     user: 'root',
     password: 'qwer1234',
-    database: 'my_blog',
+    database: 'blog-vue',
     port: '3306',
     multipleStatements: true // 多语句查询
 });
